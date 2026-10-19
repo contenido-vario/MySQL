@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+  </script>
+
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+    /* Esto carga todo el framework */
+
+    /* Variables de configuración */
+    @theme {
+      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+      --color-brand: #ff4500;
+    }
+
+    @layer base {
+      :root {
+        @apply text-sm;
+        line-height: 1.5;
+      }
+      p { @apply mb-1 }
+
+      button {
+        @apply rounded-md bg-slate-200 border-1 border-slate-400 px-4 py-1 my-1 text-sm cursor-pointer disabled:opacity-50
+      }      
+      
+      blockquote {
+        @apply mx-8 p-2 bg-slate-100
+      }
+
+      ol { @apply list-decimal list-outside ml-6 mb-4 }
+
+      ul { @apply list-[circle] list-outside ml-6 mb-4}
+      
+      kbd, code, a { @apply text-blue-800 }
+
+      a { @apply border-b-1 }
+
+      input, select { @apply border-1 px-2 }
+
+      hr { @apply my-3 }
+
+      td, th { @apply border border-b-blue-200 pl-1.5}
+    }
+  </style>
+
+  <link rel="shortcut icon" href="./img/rt.ico" type="image/svg">
+  <title>BBDD</title>
+</head>
+
+<body class="container mx-auto w-5/6 pb-10">
+  <header class="my-4">
+    <h1 class="font-bold text-2xl text-red-700 mb-4">Ciclo de vida de los Datos</h1>
+  </header>
+
+  <p>El <b>ciclo de vida de los datos</b> (<em>Data Lifecycle Management</em>, o <b>DLM</b>), es un concepto fundamental
+    en la gestión y administración de la información.</p>
+
+  <p>El ciclo de vida de los datos abarca todas las etapas por las que pasa un dato, desde su concepción inicial o
+    captura hasta su eliminación o archivo definitivo. Una correcta gestión de este ciclo garantiza la seguridad, la
+    eficiencia en el almacenamiento, el cumplimiento normativo (como el RGPD) y la calidad de la información para la
+    toma de decisiones.</p>
+
+  <h2 class="font-bold text-xl">Las Fases del Ciclo de Vida de los Datos</h2>
+
+  <p>Las etapas clave suelen estructurarse de la siguiente manera:</p>
+
+  <ol>
+    <li>
+      <p>Creación / Captura (Generation / Capture)</p>
+      <ul>
+        <li><b>Qué es</b>: Es el momento en que el dato nace o ingresa al sistema de la organización. Puede generarse
+          mediante interacciones de usuarios, transacciones (por ejemplo, una compra o un registro en una base de
+          datos), sensores IoT, formularios o importación de archivos externos.</li>
+        <li><b>Punto clave</b>: Desde este primer instante es crucial definir metadatos adecuados, validar tipos de
+          datos y asegurar que se recopilan bajo las normativas de privacidad pertinentes.</li>
+      </ul>
+    </li>
+
+    <li>
+      <p>Almacenamiento (Storage)</p>
+      <ul>
+        <li><b>Qué es</b>: Una vez capturado, el dato debe guardarse en un repositorio estructurado o no estructurado
+          (bases de datos relacionales como MySQL o PostgreSQL, NoSQL, almacenes en la nube como Supabase, S3, etc.).
+        </li>
+        <li><b>Punto clave</b>: Requiere planificar estrategias de respaldo (<em>backups</em>), redundancia,
+          optimización de esquemas y control de costos de infraestructura.</li>
+      </ul>
+    </li>
+    <li>
+      <p>Uso y Procesamiento (Usage & Processing)</p>
+      <ul>
+        <li><b>Qué es</b>: La fase activa donde los datos son consultados, transformados, analizados o utilizados por
+          aplicaciones, procesos de negocio o modelos analíticos.</li>
+        <li><b>Punto clave</b>: Garantizar la integridad, el rendimiento de las consultas (¡un buen índice en SQL hace
+          maravillas aquí!) y que los usuarios o sistemas accedan únicamente a lo que necesitan según su rol.</li>
+      </ul>
+    </li>
+    <li>
+      <p>Compartición (Sharing / Distribution)</p>
+      <ul>
+        <li> <b>Qué es</b>: Implica la transferencia o exposición de los datos, ya sea de forma interna entre
+          departamentos o externa con socios, clientes o APIs públicas.</li>
+        <b>Punto clave</b>: Proteger la información en tránsito mediante protocolos seguros (cifrado) y aplicar
+        políticas de gobernanza para evitar filtraciones.
+      </ul>
+    </li>
+    <li>
+      <p>Archivo (Archiving)</p>
+      <ul>
+        <li><b>Qué es</b>: Los datos que ya no se consultan de manera frecuente pero que deben conservarse por motivos
+          legales, históricos o de auditoría se mueven a soportes de almacenamiento secundario (más económicos y de
+          menor velocidad
+          de acceso).</li>
+        <li><b>Punto clave</b>: Reducir la carga operativa en los sistemas principales (<em>sistemas operacionales</em>)
+          manteniendola trazabilidad.</li>
+      </ul>
+    </li>
+    <li>
+      <p>Destrucción / Borrado (Purging / Disposal)</p>
+      <ul>
+        <li><b>Qué es</b>: La eliminación definitiva y segura de los datos cuando ya cumplieron su propósito legal o de
+          negocio, o cuando el usuario solicita su supresión (derecho al olvido).</li>
+        <li><b>Punto clave</b>: No basta con un simple `DELETE` o `DROP`; se deben emplear técnicas de borrado seguro
+          (<em>data shredding</em>) para garantizar que la información no pueda ser recuperada maliciosamente.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h2 class="font-bold text-xl">¿Por qué es crucial una buena gestión (DLM)?</h2>
+
+  <ol>
+    <li><b>Optimización de recursos</b>: Evita acumular "basura digital" que encarece el almacenamiento.</li>
+    <li><b>Seguridad y Cumplimiento</b>: Minimiza la superficie de ataque ante brechas de seguridad y asegura cumplir
+      con normativas de protección de datos.</li>
+    <li><b>Calidad y Confiabilidad</b>: Asegura que los analistas y sistemas trabajen con información vigente, precisa y
+      bien estructurada.</li>
+  </ol>
+
+
+  <h2 class="font-bold text-xl">¿Cómo definir metadatos adecuados?</h2>
+
+  <p>Definir metadatos adecuados —es decir, datos sobre los datos— es el cimiento para que cualquier estrategia de
+    gestión, búsqueda, gobernanza y ciclo de vida funcione de verdad. Sin buenos metadatos, los datos se convierten en
+    un "pantano" (<em>data swamp</em>) donde nadie sabe qué hay, quién lo creó o si es fiable.</p>
+
+  <p>Para estructurar una buena definición de metadatos, los expertos solemos dividirlos en categorías funcionales y
+    seguir una serie de buenas prácticas:</p>
+
+  <h3 class="font-bold text-lg my-2">Tipos de Metadatos</h3>
+  <ol>
+    <li>
+      <p>Metadatos Descriptivos (Descubrimiento)</p>
+
+      <ul>
+        <li><b>Para qué sirven</b>: Ayudan a identificar y encontrar el recurso.</li>
+        <li><b>Ejemplos</b>: Título, descripción clara, palabras clave (tags), autor, fecha de creación y versión.</li>
+      </ul>
+    </li>
+    <li>
+      <p>Metadatos Estructurales (Organización)</p>
+      <ul>
+        <li><b>Para qué sirven</b>: Explican cómo están organizados los datos y cómo se relacionan entre sí (muy útil en
+          diseño relacional o modelos complejos).</li>
+        <li><b>Ejemplos</b>: Tipos de datos, longitudes de campo, restricciones (constraints, claves
+          primarias/foráneas), formato del archivo o esquema de tablas.
+        </li>
+      </ul>
+    <li>
+      <p>Metadatos Administrativos (Gobierno y Ciclo de Vida)</p>
+      <ul>
+        <li><b>Para qué sirven</b>: Controlan la gestión, los permisos y las políticas de retención.</li>
+        <p>Ejemplos:</p>
+        <li><b>Derechos y seguridad</b>: Nivel de acceso (público, confidencial, restringido), propietario del dato.
+        </li>
+        <li><b>Retención y archivo</b>: Cuándo debe pasar a la fase de archivo o cuándo debe ser destruido (para cumplir
+          con normativas como el RGPD).</li>
+        <li><b>Procedencia (Lineage)</b>: De dónde viene el dato, qué transformaciones sufrió y qué sistema lo generó.
+        </li>
+      </ul>
+    </li>
+    </li>
+
+    <h3 class="font-bold text-lg my-2">Pasos Clave para Diseñar los metadatos</h3>
+    <ul>
+      <li><b>Establecer un Diccionario o Catálogo de Datos</b>: Define un estándar unificado en la organización. Todos deben llamar a las cosas por el mismo nombre (evitar que un departamento llame a un campo <code>id_cliente</code> y otro <code>cod_usu</code>).</li>
+      <li><b>Automatizar siempre que sea posible</b>: No dejes todo el trabajo de etiquetado a las personas. Las bases de datos, los sistemas de archivos y las herramientas ETL pueden capturar automáticamente metadatos técnicos (fecha de inserción, tamaño, tipo de dato, usuario creador).</li>
+      <li><b>Aplicar normativas o estándares reconocidos</b>: Si trabajas en dominios específicos, apóyate en estándares de metadatos existentes (como Dublin Core para documentos o esquemas estándar en almacenes de datos).</li>
+      <li><b>Mantener el catálogo de datos actualizados</b>: Un metadato obsoleto es peor que no tenerlo, porque genera desconfianza y decisiones erróneas.</li>
+    </ul>
+
+    <h3 class="font-bold text-lg my-2">Estándar reconocido en BBDD relacionales</h3>
+
+    <p>En el ámbito de las bases de datos relacionales, el estándar por excelencia a nivel global es el estándar <b><code>ANSI/ISO SQL</code></b>, junto con las especificaciones para el diseño de diccionarios de datos o catálogos del sistema (<b>Information Schema</b>).</p>
+
+    <p>A continuación se muestran las normativas más relevantes:</p>
+
+    <ol>
+      <li>
+        <p><b>El Estándar <code>ANSI/ISO SQL</code></b></p>
+
+        <p>El lenguaje SQL tiene un estándar internacional supervisado por la <b>ISO</b> (International Organization for Standardization) y el <b>ANSI</b> (American National Standards Institute). Ha evolucionado a lo largo del tiempo integrando capacidades clave para la gestión de datos y metadatos:</p>
+        
+        <p>La especificación técnica completa del lenguaje SQL es <b>ISO/IEC 9075</b></p>
+
+        <p>Revisiones clave:</p>
+        <ul>
+          <li><code>SQL-92</code>: Introdujo definiciones muy claras para los tipos de datos estándar, restricciones de integridad (<code>FOREIGN KEY, CHECK, NOT NULL</code>) y esquemas.</li>
+          <li><code>SQL:1999 y SQL:2003</code>: Añadieron soporte para disparadores (triggers), objetos y, fundamentalmente, la especificación del <code>INFORMATION_SCHEMA</code>.</li>
+          <li><code>SQL:2011 / SQL:2016 / SQL:2023</code>: Incorporaron soporte para datos temporales (versionado de datos y auditoría en el tiempo), <code>JSON</code> y consultas de grafos (<code>SQL/PGQ</code>).</li>
+        </ul>
+    </li>
+    <li>
+      <p>El Estándar <code>INFORMATION_SCHEMA</code></p>
+
+      <p>Es el estándar <code>ANSI/ISO</code> para los metadatos de la base de datos. Consiste en un conjunto de vistas de solo lectura que todo SGBD relacional compatible (como <code>PostgreSQL, MySQL, SQL Server o MariaDB</code>) debe implementar para exponer laestructura del sistema de forma unificada.</p>
+
+      <p>Permite consultar metadatos técnicos y estructurales mediante sintaxis SQL estándar:</p>
+      <ul>
+        <li><code>INFORMATION_SCHEMA.TABLES</code>: Información sobre tablas y vistas (nombre, tipo, motor).</li>
+        <li><code>INFORMATION_SCHEMA.COLUMNS</code>: Metadatos de columnas (nombre, tipo de dato, si permite nulos, valor por defecto).</li>
+        <li><code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS y KEY_COLUMN_USAGE</code>: Relaciones, claves primarias y foráneas.</li>
+      </ul>
+    </li>
+    <li>
+      <p>Estándares para el Modelado Metodológico (E-R y Normalización)</p>
+      <p>Aunque no son un estándar ISO "de software", en el diseño relacional existen normativas metodológicas consolidadas:</p>
+      <ul>
+        <li><code>IDEF1X</code>: Estándar del gobierno de EE. UU. (NIST) para la creación de diagramas Entidad-Relación y modelado de datos conceptual/lógico.</li>
+        <li>Formas Normales: Las reglas teóricas de Edgar F. Codd para garantizar la integridad estructural y evitar la redundancia.</li>
+      </ul>
+    </li>    
+    <li>
+      <p>Estándares para el Intercambio y Acceso</p>
+      <ul>
+        <li><code>ISO/IEC 11179 (Metadata Registries - MDR)</code>: Es el estándar internacional para la definición, registro y estructuración de metadatos en organizaciones. Define cómo nombrar, clasificar y describir cada elemento de dato para que sea
+        interoperable entre distintos sistemas relacionales.</li>
+        <li><code>ODBC / JDBC</code>: Estándares de facto e internacionales para la conectividad y la extracción de metadatos desde las aplicaciones hacia los SGBD.</li>
+      </ul>
+      </li>
+    </ol>
+
+    <p>Todos estos estándares son oficialmente de pago, pero en la práctica la mayor parte de la información es accesible de forma gratuita a través de la documentación de los motores de bases de datos y borradores técnicos públicos:</p>
+    
+    <p>Afortunadamente, el ecosistema de bases de datos es muy abierto y existen varias vías legales y prácticas para acceder a estos estándares sin pagar.</p>
+
+    <h3 class="font-bold text-lg my-2">Protocolo para el proceso de Captura de Datos</h3>
+
+    <p>En el ámbito de la ingeniería de datos y la gobernanza, el proceso de captura o ingestión no se deja al azar; se rige por un Framework de Ingesta de Datos (<code>Data Ingestion Framework</code>) y por protocolos estandarizados que aseguran que la información entre al sistema limpia, trazable y segura.</p>
+
+    <p>Un protocolo de captura robusto suele estructurarse en las siguientes etapas y normativas operativas:</p>
+
+    <ol>
+    <li>
+      <p>Protocolo de Identificación y Conexión de Fuentes (Source Identification)</p>
+      <p>Antes de capturar un solo byte, el protocolo exige documentar y conectar la fuente bajo ciertos criterios:</p>
+      <ul>
+        <li>Inventario de fuentes: Registrar si el origen es una base de datos transaccional (MySQL, PostgreSQL), una API de terceros, archivos planos (CSV, JSON) o dispositivos IoT.</li>
+        <li>Acuerdos de Nivel de Servicio (SLAs): Definir con qué frecuencia se actualizará la fuente (tiempo real, streaming, lotes diarios o batch) y quién es el responsable técnico (Data Owner) de esa fuente.</li>
+      </ul>
+    </li>
+    <li>
+      <p>Protocolo de Validación y Control en la Entrada (Data Validation & Quality Checks)</p>
+      <p>Esta es la fase más crítica para evitar el principio de "basura entra, basura sale" (garbage in, garbage out):</p>
+      <ul>
+        <li>Validación de esquemas: Comprobar que los tipos de datos, longitudes y restricciones coincidan con el diccionario de datos oficial antes de permitir el ingreso.</li>
+        <li>Limpieza temprana: Manejo automatizado de valores nulos, eliminación de registros duplicados y estandarización de formatos (por ejemplo, unificar formatos de fecha a ISO 8601 o codificaciones de texto a UTF-8).</li>
+        <li>Gestión de errores (Dead Letter Queues): Si un registro no cumple con las reglas de validación del protocolo, no debe tumbar todo el proceso; se desvía automáticamente a una cola de cuarentena para su revisión y depuración posterior.</li>
+      </ul>
+    </li>
+    <li>    
+      <p>Protocolo de Seguridad y Trazabilidad (Lineage & Governance)</p>
+      <p>Desde el milisegundo en que el dato es capturado, el protocolo exige sellarlo con metadatos operativos:</p>
+      <ul>
+        <li>Linaje de datos (Data Lineage): Registrar la estampa de tiempo exacto (timestamp), el identificador del sistema de origen y el proceso o script que realizó la captura.</li>
+        <li>Control de acceso y enmascaramiento: Si los datos capturados contienen información sensible o de carácter personal (PII), el protocolo aplica de inmediato políticas de cifrado en tránsito o anonimización / enmascaramiento para cumplir con normativas como el RGPD.</li>
+        <li>Implementar este tipo de protocolos garantiza que las bases de datos y los almacenes analíticos mantengan una alta integridad estructural desde la raíz.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3 class="font-bold text-lg my-2">El ISO 8601 para fechas</h3>
+
+  <p>El estándar ISO 8601 es la norma internacional establecida por la ISO para la representación de fechas y horas. Su objetivo principal es eliminar cualquier ambigüedad cultural o regional en la escritura de fechas (como la eterna confusión entre el formato estadounidense MM/DD/YYYY y el europeo DD/MM/YYYY).</p>
+
+  <p>Los principios fundamentales que establece la norma son:</p>
+
+  <ol>
+    <li>
+      <p><b>El Principio de Orden Lógico (De mayor a menor)</b></p>
+      <p>ISO 8601 exige escribir las unidades de tiempo de izquierda a derecha en orden estrictamente decreciente: desde la unidad más grande hasta la más pequeña (Año-Mes-Día-Hora-Minuto-Segundo).</p>
+
+      <p>Esto tiene una ventaja técnica gigantesca: el orden alfabético coincide exactamente con el orden cronológico, lo que facilita enormemente la ordenación y el almacenamiento en bases de datos y sistemas de archivos.</p>
+    </li>
+    <li>
+      <p><b>Formato de Fecha Estándar</b></p>
+      <p>La fecha completa se representa con el formato:</p>
+      <p>YYYY-MM-DD (Año de 4 dígitos, guion, mes de 2 dígitos, guion, día de 2 dígitos). Ejemplo: El 17 de octubre de 2026 se escribe como 2026-10-17.</p>
+      <p>(Nota: La norma también permite omitir los guiones escribiendo YYYYMMDD en contextos donde se requiera una cadena compacta, por ejemplo, 20261017, aunque el uso de guiones es el más recomendado para legibilidad humana).</p>
+    </li>    
+    <li>
+      <p><b>Formato de Hora Estándar (Sistema de 24 horas)</b></p>
+      <p>La hora se basa estrictamente en el formato de 24 horas:
+      hh:mm:ss (Horas, minutos y segundos de dos dígitos cada uno, separados por dos puntos).</p>
+      <p>Ejemplo: Las 11 de la noche y 12 minutos se escribe 23:12:00.</p>
+    </li>
+    <li>    
+      <p><b>Formato Coordenado (Fecha y Hora)</b></p>
+      <p>Para expresar una fecha y una hora simultáneamente, la norma utiliza la letra T como separador entre ambas: YYYY-MM-DDThh:mm:ss</p>
+      <p>Ejemplo: 2026-10-17T23:12:00</p>
+    </li>
+  </ol>
+
+  <h2 class="font-bold text-2xl text-red-700 my-4">Ejercicios</h2>
+
+  <p><b>Instrucciones</b></p>
+
+  <p>Relaciona cada una de las siguientes situaciones del negocio de Ana con la <b>fase del ciclo de vida de los datos</b> que le corresponde:</p>
+
+  <ul>
+    <li>Planificar</li>
+    <li>Capturar (o Recopilar)</li>
+    <li>Almacenar / Organizar</li>
+    <li>Procesar / Transformar</li>
+    <li>Analizar / Usar</li>
+    <li>Compartir / Visualizar</li>
+    <li>Archivar / Destruir</li>
+  </ul>
+
+  <h3 class="font-bold text-lg my-2">Ejercicio práctico 1: "La tienda de ropa de Ana"</h3>
+
+  <p>Ana tiene una pequeña cadena de tiendas de ropa y quiere saber qué prendas se venden más para comprar solo lo necesario y reducir costes. Para ello, ha empezado a registrar las ventas de cada caja registradora en una hoja de cálculo.</p>
+
+  <p><b>Casos para resolver:</b></p>
+
+  <ul>
+    <li>Caso A: Ana decide que va a medir las ventas por "talla", "color" y "precio unitario", asignando a su dependienta Carla la responsabilidad de revisar los datos cada semana. (Fase: ?)</li>
+    <li>Caso B: Al terminar el día, el escáner de código de barras de la caja envía automáticamente los números de cada prenda vendida al sistema. (Fase: ?)</li>
+    <li>Caso C: Ana guarda la base de datos de todo el año en un servidor seguro en la nube con copias de respaldo. (Fase: ?)</li>
+    <li>Caso D: El sistema detecta que hay tres ventas donde no se anotó la talla de la camisa y corrige esos campos vacíos para que no fallen los cálculos. (Fase: ?)</li>
+    <li>Caso E: Ana calcula cuál es la prenda que deja más margen de ganancia neta por mes. (Fase: ?)</li>
+    <li>Caso F: Ana crea un gráfico de barras colorido en la pantalla de su portátil para enseñárselo a su socio. (Fase: ?)</li>
+    <li>Caso G: Tras 5 años de guardar registros antiguos que ya no se usan por ley fiscal, Ana borra permanentemente esos archivos del disco duro. (Fase: ?)</li>
+  </ul>
+
+  <h3 class="font-bold text-lg my-2">Ejercicio 2: "Rutas Eficientes S.A."</h3>
+
+  <p>Rutas Eficientes S.A. es una empresa de distribución de mercancías congeladas. Para garantizar que los productos no pierdan la cadena de frío y lleguen a tiempo, han sensorizado y digitalizado toda su flota de camiones.</p>
+
+  <p>Instrucciones</p>
+
+  <p>Relaciona cada una de las siguientes situaciones operativas con su fase del ciclo de vida de los datos correspondiente:</p>
+
+  <ul>
+    <li>Caso 1: El departamento de TI programa un script que detecta registros corruptos debido a interferencias en los túneles y elimina los saltos térmicos imposibles (como una lectura de 90°C dentro del congelador) antes de enviar los datos al servidor central. (Fase: ?)</li>
+    <li>Caso 2: Cada 30 segundos, los sensores de temperatura y los GPS instalados en los camiones transmiten de forma inalámbrica la telemetría actual a las antenas de la central. (Fase: ?)</li>
+    <li>Caso 3: El algoritmo de la empresa cruza el histórico de tráfico, el clima y los tiempos de entrega para calcular las rutas óptimas que reducen el consumo de combustible en un 15%. (Fase: ?)</li>
+    <li>Caso 4: Las lecturas de los sensores validadas se guardan de forma estructurada en un sistema de base de datos relacional y seguro que cuenta con redundancia en tres centros de datos. (Fase: ?)</li>
+    <li>Caso 5: Al finalizar el contrato con un proveedor de sensores antiguo, la empresa tritura físicamente las tarjetas de memoria locales que contenían las claves de acceso de los dispositivos para evitar fugas de información. (Fase: ?)</li>
+    <li>Caso 6: El equipo de operaciones visualiza una pantalla con un mapa de calor en tiempo real que muestra el estado de las entregas a los principales supermercados asociados. (Fase: ?)</li>
+    <li>Caso 7: Los datos de rutas del año 2021 se mueven de los servidores principales de acceso rápido a cintas de almacenamiento magnético de bajo coste y desconectadas de internet, ya que solo se consultarán en caso de una auditoría legal. (Fase: ?)</li>
+  </ul>
+
+</body>
+
+</html>

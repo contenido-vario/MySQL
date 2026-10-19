@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Desactiva la caché del archivo HTML -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./img/rt.ico" type="image/x-icon">
+  <title>BBDD </title>
+  <!-- Los <link> de las fuentes se colocan en el HTML dado que es la forma más rápida de carga cuando se usa el CDN. -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+  </script>
+
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+    /* Esto carga todo el framework */
+
+    /* Variables de configuración */
+    @theme {
+      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+      --color-brand: #ff4500;
+    }
+
+    /* layer base: estilos globales y "reseteo" de etiquetas HTML puras */
+    /* Permite definir cómo se ve la web "por defecto" antes de empezar a poner clases. */
+
+    @layer base {
+      /* Agregar estilo de párrafo para todo el documento */
+      body { @apply text-sm }
+      b {@apply font-black text-shadow-md  }
+      p { @apply mb-4 leading-relaxed text-gray-700; }
+      a { @apply text-blue-600 underline }
+      menu {@apply list-['☆'] list-outside ms-6 space-y-1 mb-3 marker:text-cyan-600}
+      ul li {@apply ps-2 mb-1 text-sm}
+
+      /* Estilos de los títulos */
+      h1, h2 { @apply font-serif font-bold text-white mb-6; }
+      h3 { @apply text-cyan-600 text-lg mb-2}
+      
+      summary {@apply font-semibold mb-1}
+      h4 {margin-left: -6px; @apply font-bold my-2; }
+      h4 > a {@apply underline-offset-3}
+      article {
+        @apply p-4 border border-cyan-600 rounded-lg hover:shadow-md transition text-base bg-white;
+      }
+    }
+
+    /* @layer components: Se usa para crear clases complejas reutilizables */
+    /* Se usa cuando se está repitiendo EXACTAMENTE las mismas 10 clases en muchos componentes (por ejemplo botones), para crear una clase propia. */
+
+    @layer components {
+      .btn-principal {
+        @apply px-4 py-2 bg-red-700 text-white rounded-lg hover:bg-red-500 transition;
+      }
+      h4::before {        
+        content: url('./icons/link.svg'); 
+        margin-right: 4px;
+      }
+
+    }
+
+
+  </style>
+
+</head>
+
+<body class="bg-taupe-100 leading-normal tracking-normal">
+
+  <header class="bg-cyan-600 backdrop-blur-md shadow-sm px-4 py-2 sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold mt-2 ps-4">
+        <img class="inline" width="32px" src="./img/database.svg" alt="logo">&nbsp;Bases de Datos
+      </h1>
+      <!-- <nav class="mr-8 space-x-4 text-sm md:text-base xl:text-sm xl:space-x-2">
+        <a href="https://contenido-vario.github.io/materiales/"
+          class="text-yellow-300 font-bold px-4 py-1 rounded-lg hover:bg-black md:py-2">Inicio</a>
+      </nav> -->
+    </div>
+  </header>
+
+  <main class="container mx-auto mt-3 px-6 pt-1 pb-6">
+    <section>
+      <!-- <span></span> -->
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-base">
+
+      <article>
+        <h3 class="font-bold">UF01. Introducción y Diseño de Bases de Datos Relacionales</h3>
+        <p>Analizar las necesidades de almacenamiento de información de una organización y realizar el diseño conceptual de la Base de Datos.</p>
+        <p>Horas: <span class="font-bold mr-2">30</span><a href="uf01.html">&#x25b6;</a></p>
+      </article>
+
+      <article>
+        <h3 class="font-bold">UF02. Modelo Entidad-Relación y Normalización</h3>
+        <p>Transformar el diseño conceptual en un modelo lógico relacional, definir les restricciones de integridad y aplicar el proceso de normalización hasta la 3ª Forma Normal.</p>
+        <p>Horas: <span class="font-bold mr-2">30</span><a href="uf02.html">&#x25b6;</a></p>
+      </article>
+
+      <article>
+        <h3 class="font-bold">UF03. Lenguaje de Definición de Datos (DDL)</h3>
+        <p>Crear, modificar y gestionar estructuras físicas de Bases de Datos en un SGBD utilizando sentencias del lenguaje de definición de datos (DDL y DML).</p>
+        <p>Horas: <span class="font-bold mr-2">40</span><a href="uf03.html">&#x25b6;</a></p>
+      </article>
+
+      <article>
+        <h3 class="font-bold">UF04. Lenguaje de Manipulación de Datos (DML)</h3>
+        <p>Manipular y consultar la información almacenada mediante sentencias DML complejas, incluyendo operaciones multitabla y agregaciones.</p>
+        <p>Horas: <span class="font-bold mr-2">50</span><a href="uf04.html">&#x25b6;</a></p>
+      </article>
+
+      <article>
+        <h3 class="font-bold">UF05. Programación de objectos de BBDD (Triggers y Store Procedures)</h3>
+        <p>Auditar el rendimento de les consultas executadas y programar lògica de negocio a nivel de servidor en el motor de base de datos.</p>
+        <p>Horas: <span class="font-bold mr-2">50</span><a href="uf05.html">&#x25b6;</a></p>
+
+      </article>      
+      
+    </section>
+  </main>
+</body>
+
+</html>
