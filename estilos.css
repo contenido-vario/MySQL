@@ -8,10 +8,24 @@ html {
 body {
   margin: 0;
 }
-header {
-  padding: 10px 30px;
-  margin:  0;
+
+.head-container {
+  /* Equivalente a container + mx-auto */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;  /* El container de Tailwind añade padding horizontal por defecto (px-4) */
+  padding-right: 1rem;
+  
+  /* Equivalente a flex, justify-between e items-center */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+
+
+
 main {
   width: 95%;
   margin: 0 auto;
@@ -65,6 +79,17 @@ a {
   color: darkblue;
   text-decoration: none;
   border-bottom: 0.5px solid darkblue;
+  transition: filter 0.2s ease;
+}
+
+.no-border {
+  border: none;
+  margin: 0 5px;
+}
+
+a:hover {
+  font-size: 1.05em;
+  filter: brightness(1.2);
 }
 
 p {
@@ -75,9 +100,6 @@ p {
 
 menu {
   list-style-type: '☆ '; /* list-['☆'] */
-  list-style-position: outside; /* list-outside */
-  margin-inline-start: 1.5rem; /* ms-6 */
-  margin-bottom: 0.75rem; /* mb-3 */
   padding: 0;
 }
 
@@ -90,8 +112,12 @@ menu::marker {
 }
 
 ul li {
-  padding-inline-start: 0.5rem; /* ps-2 */
   list-style: circle;
+}
+
+ul, ol, li {
+  list-style-position: outside; /* list-outside */
+  padding: 0;
 }
 
 /* Estilos de los títulos */
@@ -178,6 +204,38 @@ article h4::before {
   padding: 0;            /* Elimina el relleno interior (sangría) por defecto del navegador */
 }
 
+nav {
+  margin-right: 2rem; /* mr-8 (8 * 0.25rem) */
+  font-size: 0.875rem; /* text-sm (14px) */
+  line-height: 1.25rem;
+  display: flex; /* Nota: space-x solo funciona si los hijos están en flex o grid */
+}
+
+/* Espacio horizontal entre elementos (space-x-4 por defecto) */
+nav > * + * {
+  margin-left: 1rem; /* space-x-4 (16px) */
+}
+
+/* A partir de pantallas medianas (md: 768px) */
+@media (min-width: 768px) {
+  nav {
+    font-size: 1rem; /* md:text-base (16px) */
+    line-height: 1.5rem;
+  }
+}
+
+/* A partir de pantallas extra grandes (xl: 1280px) */
+@media (min-width: 1280px) {
+  nav {
+    font-size: 0.875rem; /* xl:text-sm (14px) */
+    line-height: 1.25rem;
+  }
+  
+  /* Cambia el espacio entre elementos a xl:space-x-2 (8px) */
+  nav > * + * {
+    margin-left: 0.5rem; 
+  }
+}
 
 
 @media (min-width: 768px) {
@@ -190,3 +248,11 @@ article h4::before {
     color: darkslategray;
   }
 }
+
+
+/* Opcional (si quieres que el container respete los anchos máximos por pantalla de Tailwind) */
+/* @media (min-width: 640px)  { .header-container { max-width: 640px; } }
+@media (min-width: 768px)  { .header-container { max-width: 768px; } }
+@media (min-width: 1024px) { .header-container { max-width: 1024px; } }
+@media (min-width: 1280px) { .header-container { max-width: 1280px; } }
+@media (min-width: 1536px) { .header-container { max-width: 1536px; } } */
