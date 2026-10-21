@@ -1,0 +1,192 @@
+/* valor por defecto en todos los navegadores */
+html {
+  font-size: 100%;
+  background-color: #f3f1f1;
+  line-height: 1.3;
+}
+
+body {
+  margin: 0;
+}
+header {
+  padding: 10px 30px;
+  margin:  0;
+}
+main {
+  width: 95%;
+  margin: 0 auto;
+  color: black;
+}
+
+table,
+td,
+th {
+  text-align: left;
+  border: 1px solid darkslategray;
+  padding: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 98%;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+i {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.center {
+  text-align: center;
+}
+
+.yellow {
+  background-color: lightgoldenrodyellow
+}
+
+.teal {
+  background-color: #0891b2;
+}
+
+.blanco {
+  color: white;
+}
+
+.right {
+  text-align: right;
+}
+
+details {
+  margin-bottom: 20px;
+}
+
+a {
+  color: darkblue;
+  text-decoration: none;
+  border-bottom: 0.5px solid darkblue;
+}
+
+p {
+  margin-bottom: 1rem; /* mb-4 */
+  line-height: 1.625; /* leading-relaxed */
+  color: rgb(55, 65, 81); /* text-gray-700 */
+}
+
+menu {
+  list-style-type: '☆ '; /* list-['☆'] */
+  list-style-position: outside; /* list-outside */
+  margin-inline-start: 1.5rem; /* ms-6 */
+  margin-bottom: 0.75rem; /* mb-3 */
+  padding: 0;
+}
+
+menu > * + * {
+  margin-top: 5px; 
+}
+
+menu::marker {
+  color: rgb(8, 145, 178); /* marker:text-cyan-600 */
+}
+
+ul li {
+  padding-inline-start: 0.5rem; /* ps-2 */
+  list-style: circle;
+}
+
+/* Estilos de los títulos */
+h1 {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; /* font-serif */
+  font-weight: 700; /* font-bold */
+  color: rgb(255, 255, 255); /* text-white */
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+h2 {
+  font-size: 1.4rem; /* text-xl */
+  line-height: 2rem;
+  color: darkred; /* text-red-600 */
+}
+
+h3 {
+  color: rgb(8, 145, 178); /* text-cyan-600 */
+  font-size: 1.2rem; /* text-lg */
+  line-height: 1.75rem;
+  margin-bottom: 0.5rem; /* mb-2 */
+  font-weight: normal;
+}
+
+details {
+  padding: 0.25rem; /* p-2 */
+}
+
+.mt {
+  margin-top: 1rem; /* mt-4 */
+}
+
+summary {
+  font-weight: 600; /* font-semibold */
+  margin-bottom: 0.25rem; /* mb-1 */
+}
+
+summary h3 {
+  display: inline; /* inline */
+}
+
+h4 {
+  color: darkred; /* text-red-600 */
+  font-weight: normal;
+  font-size: 1.125rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+h6 > a {
+  text-underline-offset: 3px; /* underline-offset-3 */
+}
+
+article {
+  padding: 1rem; /* p-4 */
+  border-width: 1px; /* border */
+  border-style: solid;
+  border-color: rgb(8, 145, 178); /* border-cyan-600 */
+  border-radius: 0.5rem; /* rounded-lg */
+  background-color: rgb(255, 255, 255); /* bg-white */
+  font-size: 1rem; /* text-base */
+  line-height: 1.5rem;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter; /* transition */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+article:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* hover:shadow-md */
+}
+
+article h4::before {        
+  content: url('./icons/link.svg'); /* Inserta la imagen SVG antes del texto del h4 */
+  margin-right: 4px; /* Añade un pequeño margen derecho para separarla del texto */
+}
+
+.no-icons {
+  list-style-type: none; /* Elimina la viñeta o número */
+  margin: 0;             /* Elimina el margen exterior */
+  padding: 0;            /* Elimina el relleno interior (sangría) por defecto del navegador */
+}
+
+
+
+@media (min-width: 768px) {
+  html {
+    font-size: 90%; 
+    /* Se reduce ligeramente en pantallas más grandes */
+  }
+  main {
+    width: 90%;
+    color: darkslategray;
+  }
+}

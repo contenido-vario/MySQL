@@ -18,65 +18,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap"
     rel="stylesheet">
 
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
-  </script>
-
-  <style type="text/tailwindcss">
-    @import "tailwindcss"; 
-    /* Esto carga todo el framework */
-
-    /* Variables de configuración */
-    @theme {
-      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
-      --color-brand: #ff4500;
-    }
-
-    /* layer base: estilos globales y "reseteo" de etiquetas HTML puras */
-    /* Permite definir cómo se ve la web "por defecto" antes de empezar a poner clases. */
-
-    @layer base {
-      /* Agregar estilo de párrafo para todo el documento */
-      body { @apply text-sm }
-      b {@apply font-black text-shadow-md  }
-      p { @apply mb-4 leading-relaxed text-gray-700; }
-      a { @apply text-blue-600 underline }
-      menu {@apply list-['☆'] list-outside ms-6 space-y-1 mb-3 marker:text-cyan-600}
-      ul li {@apply ps-2 mb-1 text-sm}
-
-      /* Estilos de los títulos */
-      h1, h2 { @apply font-serif font-bold text-white mb-6; }
-      h3 { @apply text-cyan-600 text-lg mb-2}
-      
-      summary {@apply font-semibold mb-1}
-      h4 {margin-left: -6px; @apply font-bold my-2; }
-      h4 > a {@apply underline-offset-3}
-      article {
-        @apply p-4 border border-cyan-600 rounded-lg hover:shadow-md transition text-base bg-white;
-      }
-    }
-
-    /* @layer components: Se usa para crear clases complejas reutilizables */
-    /* Se usa cuando se está repitiendo EXACTAMENTE las mismas 10 clases en muchos componentes (por ejemplo botones), para crear una clase propia. */
-
-    @layer components {
-      .btn-principal {
-        @apply px-4 py-2 bg-red-700 text-white rounded-lg hover:bg-red-500 transition;
-      }
-      h4::before {        
-        content: url('./icons/link.svg'); 
-        margin-right: 4px;
-      }
-
-    }
-
-
-  </style>
+  <link rel="stylesheet" href="estilos.css">
 
 </head>
 
 <body class="bg-taupe-100 leading-normal tracking-normal">
 
-  <header class="bg-cyan-600 backdrop-blur-md shadow-sm px-4 py-2 sticky top-0 z-50">
+  <header class="teal">
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="text-xl font-bold mt-2 ps-4">
         <img class="inline" width="32px" src="./img/database.svg" alt="logo">&nbsp;Bases de Datos
@@ -89,42 +37,32 @@
   </header>
 
   <main class="container mx-auto mt-3 px-6 pt-1 pb-6">
-    <section>
-      <h3>Introducción a los Sistemas de Bases de Datos y Diseño Conceptual (I)</h3>
-      <menu>
-        <li>&nbsp;
-          <a target="blank" href="ciclo-datos.html">
-            Ciclo de vida de los datos
-          </a>
-        </li>
-        <li>&nbsp;
-          <a target="blank" href="https://contenido-vario.github.io/db/BBDD1.pdf">Introducción a las Bases de Datos Relacionales
-          </a>
-        </li>
-        <ol>
-          <li>&nbsp;
-            - Fases del diseño
+    <details class="mt"> <!--sesion 1 -->
+      <summary><h3>Introducción a los Sistemas de Bases de Datos y Fases del Diseño.</h3></summary>
+      <blockquote>
+        <h4>Contenido</h4>
+        <menu>
+          <li><a target="blank" href="ciclo-datos.html">
+              Ciclo de vida de los datos
+            </a>
           </li>
-          <li>&nbsp;
-            - Conceptos del diseño conceptual
-          </li>
-        </ol>
-      </menu>
-    </section>
+          <li>
+            <a target="blank" href="https://contenido-vario.github.io/db/BBDD1.pdf">Introducción a las Bases de Datos Relacionales
+            </a>
+          </li>        
+        </menu>
+      </blockquote>
+    </details>
 
-    <section>
-      <h3>Diseño Conceptual (II) Modelo Entidad-Relación</h3>      
+    <details> <!--sesion 2 -->
+      <summary><h3>Diseño Conceptual. <b>Diagrama Entidad-Relación</b></h3></summary>      
       <ol>
-        <li>&nbsp;
-          - Entidades
-        </li>
-        <li>&nbsp;
-          - Atributos (simples, compuestos, multivaluados, autogenerados) 
-        </li> 
-        <li>&nbsp;
-          - Tipos de relaciones (cardinalidad y participación).
-        </li>
+        <li>Entidades</li>
+        <li>Relaciones</li>
+        <li>Tipo de Relación (cardinalidad y participación)</li>
+        <li>Atributos (simples, compuestos, multivaluados, autogenerados)</li> 
       </ol>
+      <h4>Enlaces</h4>
       <menu>
         <li>&nbsp; 
           <a target="blank" href="https://contenido-vario.github.io/db/BBDD2.pdf">Diseño Conceptual de la BBDD
@@ -134,7 +72,30 @@
           <a download href="ejercicios-sesion2.pdf">Ejercicios</a>
         </li>
       </menu>
-    </section>
+    </details>
+
+    <details open> <!--sesion 3 -->
+      <summary><h3>Del Modelo Conceptual al Modelo Lógico. 
+        <b>El Modelo Relacional</b></h3></summary>
+      <blockquote>
+        <ol>
+          <li>Repaso de la Estructura del Modelo Relacional</li>
+          <li>Reglas de paso del Diagrama E/R al Modelo Relacional.</li>
+        </ol>
+      <h4>Enlaces</h4>
+      <menu>
+        <li>&nbsp; 
+          <a download href="matriz-relaciones.pdf">La Matriz de Relaciones</a>
+        </li>        
+        <li>&nbsp; 
+          <a download="modelo-relacional.pdf" href="BBDD3a.pdf">El Modelo Relacional</a>
+        </li>
+        <li><i>&nbsp;<b>Ejercicio</b>: Transformar los ejercicios 1 y 2 de la sesión anterior al Modelo Relacional</i></li>
+      </menu>
+      </blockquote>
+    </details>
+
+
 
   </main>
 </body>
