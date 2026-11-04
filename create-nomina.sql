@@ -1,5 +1,8 @@
 -- nomina.sql
 
+CREATE DATABASE IF NOT EXISTS nomina;
+USE nomina;
+
 -- tabla departamento
 CREATE TABLE departamento(
   pk_departamento int AUTO_INCREMENT,
