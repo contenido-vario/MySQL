@@ -45,7 +45,7 @@ ADD CONSTRAINT departamentos_empleados
 FOREIGN KEY (fk_departamento) REFERENCES departamento(pk_departamento)
 ON UPDATE CASCADE ON DELETE RESTRICT;
 
-ALTER TABLE empleados ADD COLUMN num_sso varchar(15)
+ALTER TABLE empleado ADD COLUMN num_sso varchar(15);
 
-ALTER TABLE empleados
+ALTER TABLE empleado
 ADD CONSTRAINT sso_empleado UNIQUE(num_sso);
