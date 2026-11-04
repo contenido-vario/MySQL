@@ -7,7 +7,7 @@ USE nomina;
 CREATE TABLE departamento(
   pk_departamento int AUTO_INCREMENT,
   departamento varchar(50) unique,
-  primary key pk_departamento
+  primary key (pk_departamento)
 );
 
 -- tabla cargo
