@@ -1,0 +1,182 @@
+/* Reseteo básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 14px;
+}
+
+body {
+  font-family: 'Inclusive Sans', 'Segoe UI',  sans-serif, system-ui;
+  background-color: #F3F1F1;
+  color: #333333;
+  padding-top: 90px; /* Espacio para que el header fijo no tape el contenido */
+}
+
+h2 {
+  text-align: center;
+  color: #6ab0bf;
+}
+
+h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* HEADER FIJO  */
+
+.header-fijo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #0b819f;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.header-contenido {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header-fijo h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.header-fijo a {
+  text-decoration: none;
+}
+
+/* =========================================
+   CUADRÍCULA DE TARJETAS (Ordenador y Tablet horizontal)
+   ========================================= */
+.contenedor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas iguales */
+  gap: 10px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.tarjeta {
+  background-color: #ffffff;
+  border: 1.5px solid #6ab0bf;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.f-taupe {
+  background-color: #E8E4E3;
+}
+
+.tarjeta h2 {
+  color: #0b819f;
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.tarjeta p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.horas {
+  font-size: 1rem;
+  margin-top: auto;
+}
+
+.horas a {
+  color: #1a45b8;
+  text-decoration: underline;
+  margin-left: 5px;
+}
+
+
+
+/* Estructura común para todas las viñetas */
+.sesion-curso li {
+  list-style: none;
+  position: relative;
+  padding-left: 24px;   
+  /* Deja espacio libre a la izquierda */
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color:darkblue;
+}
+
+/* El cascarón que sostendrá las imágenes SVG */
+.sesion-curso li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1em;           
+  /* Efecto viñeta alineado con la primera palabra */
+  width: 16px;          
+  /* Proporción ideal para fuente de 14px */
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Clases personalizadas cargando los iconos */
+.sesion-curso li.material::before {
+  background-image: url('lesson.svg');
+}
+
+.sesion-curso li.ejemplo::before {
+  background-image: url('ejemplos.svg');  
+}
+
+.sesion-curso li.ejercicio::before {
+  background-image: url('ejercicios.svg');  
+}
+
+.sesion-curso li.solucion::before {
+  background-image: url('solucion.svg'); 
+}
+
+.sesion-curso li.data::before {
+  background-image: url('data.svg'); 
+}
+
+.sesion-curso li.recurso::before {
+  background-image: url('bookmark.svg'); 
+}
+
+.sesion-curso li.carpeta::before {
+  background-image: url('carpeta.svg'); 
+}
+
+/* =========================================
+   TABLET VERTICAL Y MÓVIL (1 columna)
+   ========================================= */
+/* Las tablets horizontales suelen medir 1024px de ancho.
+   Al poner el corte en 768px, las horizontales mantienen 2 columnas,
+   y las verticales (768px) y móviles pasan a 1 columna. */
+@media (max-width: 768px) {
+  .contenedor-grid {
+    grid-template-columns: 1fr;
+  }
+}
