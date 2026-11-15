@@ -1,108 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
-  <!-- Desactiva la caché del archivo HTML -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./img/rt.ico" type="image/x-icon">
-  <title>BBDD </title>
-  <!-- Los <link> de las fuentes se colocan en el HTML dado que es la forma más rápida de carga cuando se usa el CDN. -->
-
+  <title>Bases de Datos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap"
-    rel="stylesheet">
-
-  <link rel="stylesheet" href="estilos.css">
-
+    rel="stylesheet">  
+  <link rel="stylesheet" href="./css/vinyetas.css">
 </head>
-
 <body>
 
-  <header class="teal">
-    <div class="head-container">
-      <h1>
-        <a href="https://contenido-vario.github.io/MySQL/"
-          class="no-border">
-          <img class="inline" width="32px" src="./img/database.svg" alt="logo">
-        </a>
-        Bases de Datos
-      </h1>
-      <nav>
-      </nav>
+  <!-- Barra azul fija -->
+  <header class="header-fijo">
+    <div class="header-contenido">
+      <span class="icono"><a href="index.html" ><img src="./img/database.svg" alt="logo"></a></span>
+      <h1>Diseño de Bases de Datos</h1>
     </div>
   </header>
 
-  <main>
-    <h2>UF01-Introducción y Diseño de Bases de Datos Relacionales</h2>
-    <details class="mt"> <!--sesion 1 -->
-      <summary><h3>Introducción a los Sistemas de Bases de Datos y Fases del Diseño.</h3></summary>
-      <blockquote>
-        <h4>Contenido</h4>
-        <menu>
-          <li><a target="blank" href="ciclo-datos.html">
-              Ciclo de vida de los datos
-            </a>
-          </li>
-          <li>
-            <a target="blank" href="https://contenido-vario.github.io/db/BBDD1.pdf">Introducción a las Bases de Datos Relacionales
-            </a>
-          </li>        
-        </menu>
-      </blockquote>
-    </details>
+  <!-- Contenedor principal de las tarjetas -->
+  <h2>UF01. Introducción y Diseño de Bases de Datos Relacionales</h2>
 
-    <details> <!--sesion 2 -->
-      <summary><h3>Diseño Conceptual. <b>Diagrama Entidad-Relación</b></h3></summary>
-      <blockquote>   
-      <ol>
-        <li>Entidades</li>
-        <li>Relaciones</li>
-        <li>Tipo de Relación (cardinalidad y participación)</li>
-        <li>Atributos (simples, compuestos, multivaluados, autogenerados)</li> 
-      </ol>
-      <h4>Enlaces</h4>
-      <menu>
-        <li>&nbsp; 
-          <a target="blank" href="https://contenido-vario.github.io/db/BBDD2.pdf">Diseño Conceptual de la BBDD
-          </a>
-        </li>
-        <li>&nbsp; 
-          <a target="blank" href="ejercicios-sesion2.pdf">Ejercicios</a>
-        </li>
-      </menu>
-      </blockquote>
-    </details>
+  <main class="contenedor-grid">    
+    <article class="tarjeta">
+      <h3>Material de consulta</h3>
+      <ul class="sesion-curso">
+        <li class="material"><a target="blank" href="./uf01/pdf/BBDD_UF01_0ciclo_vida.pdf">El Ciclo de Vida de los Datos</a></li>        
+        <li class="material"><a target="blank" href="./uf01/pdf/BBDD_UF01_1intro.pdf">Introducción a las Bases de Datos</a></li>
+        <li class="material"><a target="blank" href="./uf01/pdf/BBDD_UF01_2Conceptual.pdf">Diseño Conceptual de la BBDD</a></li>
+        <li class="material"><a target="blank" href="./uf01/pdf/BBDD_UF01_3MatrizRelaciones.pdf">La Matriz de Relaciones</a></li>
+        <li class="material"><a target="blank" href="./uf01/pdf/BBDD_UF01_4Logico.pdf">Paso del Diagrama E/R al Modelo Relacional.</a></li>
+      </ul>
+     
+    </article>
 
-    <details open> <!--sesion 3 -->
-      <summary><h3>Del Modelo Conceptual al Modelo Lógico. 
-        <b>El Modelo Relacional</b></h3></summary>
-      <blockquote>
-        <ol>
-          <li>Repaso de la Estructura del Modelo Relacional</li>
-          <li>Reglas de paso del Diagrama E/R al Modelo Relacional.</li>
-        </ol>
-      <h4>Enlaces</h4>
-      <menu>
-        <li>&nbsp; 
-          <a target="blank" href="matriz-relaciones.pdf">La Matriz de Relaciones</a>
-        </li>        
-        <li>&nbsp; 
-          <a target="blank" href="BBDD3a.pdf">El Modelo Relacional</a>
-        </li>
-        <li><i>&nbsp;<b>Ejercicio</b>: Transformar los ejercicios 1 y 2 de la sesión anterior al Modelo Relacional</i></li>
-      </menu>
-      </blockquote>
-    </details>
+    <article class="tarjeta">
+      <h3>Ejercicios</h3>
+        <ul class="sesion-curso">      
+        <li class="ejercicio"><a target="blank" href="./uf01/exs/ejercicio_ciclo_vida.pdf">Ciclo de Vida de los Datos</a></li>
+        <li class="ejercicio"><a target="blank" href="./uf01/exs/ejercicios1al4.pdf">Ejercicios Diseño Conceptual</a></li>
+        <li class="ejercicio">Transformar los ejercicios 1 al 3 del punto anterior,<br>de Diagrama E/R al Modelo Relacional</li>     
+      </ul>
+    </article>
+
+    <article>&nbsp;</article>
+
+    <article class="tarjeta">
+      <h3>Soluciones</h3>
+      <ul class="sesion-curso">      
+        <li class="solucion"><a target="blank" href="./uf01/sol/ejercicio_ciclo_vida.docx">Ciclo de Vida de los Datos</a></li>
+        <li class="solucion"><a target="blank" href="./uf01/sol/soluciones_ejercicios_2_y_3.pdf">Soluciones ejercicios 2 y 3</a></li>    
+      </ul>
+    </article>
 
 
 
   </main>
-</body>
 
+</body>
 </html>
