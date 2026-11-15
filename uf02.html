@@ -1,101 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
-  <!-- Desactiva la caché del archivo HTML -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./img/rt.ico" type="image/x-icon">
-  <title>BBDD </title>
-  <!-- Los <link> de las fuentes se colocan en el HTML dado que es la forma más rápida de carga cuando se usa el CDN. -->
-
+  <title>Bases de Datos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap"
-    rel="stylesheet">
-
-  <link rel="stylesheet" href="estilos.css">
-
+    rel="stylesheet">  
+  <link rel="stylesheet" href="./css/vinyetas.css">
 </head>
-
 <body>
 
-  <header class="teal">
-    <div class="head-container">
-      <h1>
-        <a href="https://contenido-vario.github.io/MySQL/"
-          class="no-border">
-          <img class="inline" width="32px" src="./img/database.svg" alt="logo">
-        </a>
-        Bases de Datos
-      </h1>
-      <nav>
-      </nav>
+  <!-- Barra azul fija -->
+  <header class="header-fijo">
+    <div class="header-contenido">
+      <span class="icono"><a href="index.html" ><img src="./img/database.svg" alt="logo"></a></span>
+      <h1>Diseño de Bases de Datos</h1>
     </div>
   </header>
 
-  <main>
-    <h2>UF02. Normalización, Refinando el Diagrama E/R</h2>
-    <details class="mt">
-      <summary><h3>Normalización</h3></summary>
-      <blockquote>
-        <ol>
-          <li>Formas Normales 1 a 3</li>
-          <li>Buenas prácticas</li>
-        </ol>
-      <h4>Enlaces</h4>
-      <menu>
-        <li>&nbsp;
-          <a target="_blank" href="soluciones_ejercicios_2_y_3.pdf">Soluciones Ejercicios 2 y 3</a>
+  <!-- Contenedor principal de las tarjetas -->
+  <h2>UF02. Refinando el Modelo. Normalización</h2>
+
+  <main class="contenedor-grid">    
+    <article class="tarjeta">
+      <h3>Material de consulta</h3>
+      <ul class="sesion-curso">
+        <li class="material"><a target="blank" href="./uf02/pdf/BBDD_UF02_2ER_extendido.pdf">Refinando el Modelo E/R</a></li>        
+        <li class="material"><a target="blank" href="./uf02/pdf/BBDD_UF02_1Normalizacion.pdf">Normalización de Bases de Datos</a></li>
+      </ul>
+     
+    </article>
+
+    <article class="tarjeta">
+      <h3>Ejercicios</h3>
+        <ul class="sesion-curso">      
+        <li class="ejercicio">Transformar el ejercicio 4 (<b>Vuelos</b>) en un Modelo Relacional Normalizado </li>
+        <li class="ejercicio"><a target="blank" href="./uf02/exs/ejercicio5.pdf">Ejercicio 5. Empresa de Transporte de Mercancías</a></li>     
+      </ul>
+    </article>
+
+    <article class="tarjeta f-blue">
+      <h3>Datos sobre carreteras y aeropuertos</h3>
+      <ul class="sesion-curso">
+        <li class="data">
+          <a target="_blank" rel="noopener" href="https://catalogorce.transportes.gob.es/descarga-catalogo">Catálogo de carreteras, España</a>
         </li>
-        <li>&nbsp;
+        <li class="data">
           <a target="_blank" href="https://github.com/oscarnovasf/ccaa-provincias-municipios/tree/master/sql">Provincias y Comunidades Autónomas</a>
         </li>
-        <li>&nbsp;
-          <a target="_blank" rel="noopener" href="https://catalogorce.transportes.gob.es/descarga-catalogo">Catálogo de carreteras, España</a>
-          <br><br>
-        </li>
-        <li>&nbsp;
-          <a download="ejercicio4.accdb" href="vuelos.accdb">Solución Ejercicio 4</a>
-        </li>
-        <li>&nbsp;
+        <li class="data">
           <a href="https://github.com/dr5hn/countries-states-cities-database/tree/master/csv" target="_blank" rel="noopener noreferrer">Países y ciudades del mundo .csv</a>
+        </li>        
+        <li class="data">
+          <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/aashishvanand/airport-data-js/refs/heads/main/data/airports.json">Aeropuertos del Mundo</a>
         </li>
-        <li>&nbsp;
-          Lo llevaré a tablas: <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/aashishvanand/airport-data-js/refs/heads/main/data/airports.json">Aeropuertos del Mundo</a>
-          <br><br>
-        </li>
-        
-        <li>&nbsp; 
-          <a target="_blank" href="BBDD3b.pdf">Normalización</a>
-        </li>
-        <li><i>&nbsp;<b>Ejercicio</b>: Aplicar las Formas Normales y las Buenas Prácticas al modelo de los ejercicios 1 a 4 de la UF1</i></li>
-      </menu>
-      </blockquote>
-    </details>
-    <details class="mt" open>
-      <summary><h3>Refinando el Diagrama Entidad-Relación</h3></summary>
-      <blockquote>
-        <menu>
-          <li>&nbsp; 
-            <a target="_blank" href="BBDD4.pdf">
-              Refinando el Diagrama Entidad-Relación
-            </a>
-          </li>
-          <li>&nbsp; 
-            <a target="_blank" href="ejercicio5.pdf">Ejercicio 5</a>
-          </li>
-          <li>&nbsp;
-            <a download="ejercicio5.accdb" href="ejercicio5.accdb">Solución Ejercicio 5</a>
-          </li>
-        </menu>
-      </blockquote>
-    </details>
-  </main>
-</body>
+      </ul>
+    </article>
 
+    <article class="tarjeta">
+      <h3>Soluciones</h3>
+      <ul class="sesion-curso">      
+        <li class="solucion"><a target="blank" href="./uf02/sol/ejercicio4_vuelos.accdb">Solución ejercicio 4: vuelos.accdb</a></li>
+        <li class="solucion"><a target="blank" href="./uf02/sol/ejercicio5.accdb">Solución ejercicio 5: ejercicio5.accdb</a></li>  
+      </ul>
+    </article>
+
+
+
+  </main>
+
+</body>
 </html>
