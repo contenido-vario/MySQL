@@ -19,7 +19,7 @@ body {
 
 h2 {
   text-align: center;
-  color: #6ab0bf;
+  color: #0284c7;
 }
 
 h3 {
@@ -85,6 +85,10 @@ h3 {
 
 .f-taupe {
   background-color: #E8E4E3;
+}
+
+.f-blue {
+  background-color: #f0f9ff;
 }
 
 .tarjeta h2 {
