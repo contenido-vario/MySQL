@@ -83,6 +83,11 @@ h3 {
   /* justify-content: space-between; */
 }
 
+.no-deco {
+  text-decoration: none;
+  margin-left: 0.5em;
+}
+
 .f-taupe {
   background-color: #E8E4E3;
 }
@@ -171,6 +176,10 @@ h3 {
 
 .sesion-curso li.carpeta::before {
   background-image: url('carpeta.svg'); 
+}
+
+.sesion-curso li.star::before {
+  background-image: url('star.svg');
 }
 
 /* =========================================
