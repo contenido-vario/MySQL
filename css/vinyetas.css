@@ -24,6 +24,7 @@ h2 {
 
 h3 {
   margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 /* HEADER FIJO  */
@@ -81,6 +82,7 @@ h3 {
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
+  min-height: 12rem;
 }
 
 .no-deco {
