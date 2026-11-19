@@ -472,7 +472,7 @@ INSERT INTO producto VALUES ('OR-232','Cycas Revoluta',5,'80 - 90','Viveros EL O
 INSERT INTO producto VALUES ('OR-233','Dracaena Drago',5,'60 - 70','Viveros EL OASIS','',1,13,10);
 INSERT INTO producto VALUES ('OR-234','Dracaena Drago',5,'130 - 150','Viveros EL OASIS','',2,64,51);
 INSERT INTO producto VALUES ('OR-235','Dracaena Drago',5,'150 - 175','Viveros EL OASIS','',2,92,73);
-INSERT INTO producto VALUES ('OR-236','Jubaea Chilensis','Ornamentales','','Viveros EL OASIS','',100,49,39);
+INSERT INTO producto VALUES ('OR-236','Jubaea Chilensis',5,'','Viveros EL OASIS','',100,49,39);
 INSERT INTO producto VALUES ('OR-237','Livistonia Australis',5,'100 - 125','Viveros EL OASIS','',50,19,15);
 INSERT INTO producto VALUES ('OR-238','Livistonia Decipiens',5,'90 - 110','Viveros EL OASIS','',50,19,15);
 INSERT INTO producto VALUES ('OR-239','Livistonia Decipiens',5,'180 - 200','Viveros EL OASIS','',50,49,39);
