@@ -11,7 +11,7 @@ CREATE TABLE oficina (
   telefono VARCHAR(20) NOT NULL,
   linea_direccion1 VARCHAR(50) NOT NULL,
   linea_direccion2 VARCHAR(50) DEFAULT NULL,
-  PRIMARY KEY (codigo_oficina)
+  PRIMARY KEY (pk_oficina)
 );
 
 CREATE TABLE empleado (
@@ -83,13 +83,13 @@ CREATE TABLE producto (
 
 CREATE TABLE detalle_pedido (
   fk_num_pedido INTEGER NOT NULL,
-  codigo_producto VARCHAR(15) NOT NULL,
+  fk_producto VARCHAR(15) NOT NULL,
   cantidad INTEGER NOT NULL,
   precio_unidad NUMERIC(15,2) NOT NULL,
   numero_linea SMALLINT NOT NULL,
-  PRIMARY KEY (codigo_pedido, codigo_producto),
-  FOREIGN KEY (codigo_pedido) REFERENCES pedido (codigo_pedido),
-  FOREIGN KEY (codigo_producto) REFERENCES producto (codigo_producto)
+  PRIMARY KEY (fk_pedido, fk_producto),
+  FOREIGN KEY (fk_pedido) REFERENCES pedido (pk_pedido),
+  FOREIGN KEY (fk_producto) REFERENCES producto (pk_producto)
 );
 
 CREATE TABLE pago (
