@@ -56,14 +56,14 @@ CREATE TABLE cliente (
 );
 
 CREATE TABLE pedido (
-  pk_num_pedido INTEGER NOT NULL,
+  pk_pedido INTEGER NOT NULL,
   fecha_pedido date NOT NULL,
   fecha_esperada date NOT NULL,
   fecha_entrega date DEFAULT NULL,
   estado VARCHAR(15) NOT NULL,
   comentarios TEXT,
   fk_cliente INTEGER NOT NULL,
-  PRIMARY KEY (pk_num_pedido),
+  PRIMARY KEY (pk_pedido),
   FOREIGN KEY (fk_cliente) REFERENCES cliente (pk_cliente)
 );
 
@@ -82,7 +82,7 @@ CREATE TABLE producto (
 );
 
 CREATE TABLE detalle_pedido (
-  fk_num_pedido INTEGER NOT NULL,
+  fk_pedido INTEGER NOT NULL,
   fk_producto VARCHAR(15) NOT NULL,
   cantidad INTEGER NOT NULL,
   precio_unidad NUMERIC(15,2) NOT NULL,
